@@ -21,7 +21,7 @@
     
     self = [super init];
     self.dao = [ContatoDao contatoDaoInstance];
-    self.contatoSelecionado = nil;
+    self.dao.contatoSelecionado = nil;
     
 //    Botao de cadastrar um novo (lado direito)
     UIBarButtonItem *btnAdd = [[UIBarButtonItem alloc]
@@ -45,7 +45,7 @@
     
     ViewController *formulario = [storeBoard instantiateViewControllerWithIdentifier: @"FormularioContatos"];
     
-    formulario.contatoEditar = self.contatoSelecionado;
+//    formulario.contatoEditar = self.contatoSelecionado;
     
     [self.navigationController pushViewController: formulario
                                          animated: YES];
@@ -101,7 +101,7 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.contatoSelecionado = [self.dao contatoNoIndex: indexPath.row];
+    self.dao.contatoSelecionado = [self.dao contatoNoIndex: indexPath.row];
     
     [self mostrarFormulario];
 }

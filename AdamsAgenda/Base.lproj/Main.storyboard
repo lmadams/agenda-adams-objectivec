@@ -90,6 +90,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="botaoAdicionar" destination="6af-Ok-qe3" id="KSz-Yi-gsH"/>
                         <outlet property="email" destination="5ac-dI-K09" id="9PH-oD-tiq"/>
                         <outlet property="endereco" destination="Wwt-OB-iNv" id="3NS-Qn-xzC"/>
                         <outlet property="nome" destination="XTj-CE-mtb" id="o60-U3-ZyZ"/>

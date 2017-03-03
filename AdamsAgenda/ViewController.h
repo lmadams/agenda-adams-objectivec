@@ -9,8 +9,9 @@
 @property IBOutlet UITextField *telefone;
 @property IBOutlet UITextField *email;
 
+@property IBOutlet UIButton *botaoAdicionar;
+
 @property ContatoDao *dao;
-@property Contato *contatoEditar;
 
 @end
 

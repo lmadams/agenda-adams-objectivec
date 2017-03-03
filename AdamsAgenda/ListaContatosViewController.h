@@ -6,6 +6,5 @@
 //@property NSMutableArray *contatos;
 
 @property ContatoDao *dao;
-@property Contato *contatoSelecionado;
 
 @end

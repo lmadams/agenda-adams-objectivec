@@ -15,22 +15,32 @@
 }
 
 -(void) viewDidLoad {
-    [self editarContato];
+    if (self.dao.contatoSelecionado != nil) {
+        [self editarContato];
+        
+        // ALTERA O TEXTO DO BOTAO
+        [self.botaoAdicionar setTitle:@"Salvar" forState: UIControlStateNormal];
+    }
 }
 
 -(void) editarContato {
-    self.nome.text = self.contatoEditar.nome;
-    self.telefone.text = self.contatoEditar.telefone;
-    self.email.text = self.contatoEditar.email;
-    self.endereco.text = self.contatoEditar.endereco;
+    self.nome.text = self.dao.contatoSelecionado.nome;
+    self.telefone.text = self.dao.contatoSelecionado.telefone;
+    self.email.text = self.dao.contatoSelecionado.email;
+    self.endereco.text = self.dao.contatoSelecionado.endereco;
 }
 
 -(IBAction) adicoinar {
     
-    if (self.contatoEditar) {
-        NSLog(@"%@", self.contatoEditar);
+    if (self.dao.contatoSelecionado) {
+        self.dao.contatoSelecionado.nome =self.nome.text;
+        self.dao.contatoSelecionado.telefone = self.telefone.text;
+        self.dao.contatoSelecionado.email = self.email.text;
+        self.dao.contatoSelecionado.endereco = self.endereco.text;
+        
+        NSLog(@"%@", self.dao.contatoSelecionado);
 
-        self.contatoEditar = nil;
+        self.dao.contatoSelecionado = nil;
         
     } else {
         Contato *contato = [Contato new];

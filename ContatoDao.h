@@ -4,6 +4,8 @@
 
 @interface ContatoDao : NSObject
 
+@property Contato *contatoSelecionado;
+
 +(ContatoDao*) contatoDaoInstance;
 
 -(void) adicionarContato:(Contato*)contato;
