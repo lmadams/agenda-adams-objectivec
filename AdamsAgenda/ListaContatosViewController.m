@@ -42,10 +42,7 @@
     
     UIStoryboard *storeBoard = [UIStoryboard storyboardWithName: @"Main"
                                                          bundle: nil];
-    
     ViewController *formulario = [storeBoard instantiateViewControllerWithIdentifier: @"FormularioContatos"];
-    
-//    formulario.contatoEditar = self.contatoSelecionado;
     
     [self.navigationController pushViewController: formulario
                                          animated: YES];

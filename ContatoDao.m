@@ -52,7 +52,14 @@ static ContatoDao *instancia = nil;
 }
 
 -(void) adicionarContato:(Contato*)contato {
-    [self.contatos addObject: contato];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO contatos values (null, '%@', '%@', '%@', '%@')",
+                       contato.nome, contato.endereco, contato.email, contato.telefone];
+    [self.dbManager executeQuery: query];
+    
+    if (self.dbManager.lastInsertedRowID > 0) {
+        contato.id = (NSInteger) self.dbManager.lastInsertedRowID;
+        [self.contatos addObject: contato];
+    }
 }
 
 -(NSInteger) tamanho {
