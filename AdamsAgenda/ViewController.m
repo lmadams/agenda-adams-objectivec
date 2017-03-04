@@ -31,27 +31,17 @@
 }
 
 -(IBAction) adicoinar {
+    Contato *contato = [Contato new];
+    
+    contato.nome = self.nome.text;
+    contato.endereco = self.endereco.text;
+    [contato setTelefone : self.telefone.text];
+    [contato setEmail : self.email.text];
     
     if (self.dao.contatoSelecionado) {
-        self.dao.contatoSelecionado.nome =self.nome.text;
-        self.dao.contatoSelecionado.telefone = self.telefone.text;
-        self.dao.contatoSelecionado.email = self.email.text;
-        self.dao.contatoSelecionado.endereco = self.endereco.text;
-        
-        NSLog(@"%@", self.dao.contatoSelecionado);
-
-        self.dao.contatoSelecionado = nil;
-        
+        contato.id = self.dao.contatoSelecionado.id;
+        [self.dao editarContato: contato];
     } else {
-        Contato *contato = [Contato new];
-        
-        contato.nome = self.nome.text;
-        contato.endereco = self.endereco.text;
-        [contato setTelefone : self.telefone.text];
-        [contato setEmail : self.email.text];
-        
-        NSLog(@"%@", contato);
-        
         [self.dao adicionarContato: contato];
     }
     

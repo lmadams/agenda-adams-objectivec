@@ -14,6 +14,8 @@
 
 -(Contato*) contatoNoIndex: (NSInteger) index;
 
+-(void) editarContato:(Contato*)contatoAlterado;
+
 -(void) removerContato:(Contato*)contato;
 
 @end

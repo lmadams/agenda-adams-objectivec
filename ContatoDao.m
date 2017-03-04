@@ -48,7 +48,6 @@ static ContatoDao *instancia = nil;
         
         [self.contatos addObject: contato];
     }
-    
 }
 
 -(void) adicionarContato:(Contato*)contato {
@@ -70,8 +69,25 @@ static ContatoDao *instancia = nil;
     return self.contatos[index];
 }
 
+-(void) editarContato:(Contato*)contatoAlterado {
+    NSString *query = [NSString stringWithFormat:
+                       @"UPDATE contatos SET nome = '%@', endereco = '%@', email = '%@', telefone = '%@' WHERE id = '%d'",
+                       contatoAlterado.nome, contatoAlterado.endereco, contatoAlterado.email, contatoAlterado.telefone, contatoAlterado.id];
+    [self.dbManager executeQuery: query];
+    
+    if (self.dbManager.affectedRows == 1) {
+        self.contatoSelecionado.nome = contatoAlterado.nome;
+        self.contatoSelecionado.telefone = contatoAlterado.telefone;
+        self.contatoSelecionado.email = contatoAlterado.email;
+        self.contatoSelecionado.endereco = contatoAlterado.endereco;
+        
+        // Limpar selecionado
+        self.contatoSelecionado = nil;
+    }
+}
+
 -(void) removerContato:(Contato*)contato {
-    NSString *query = [NSString stringWithFormat:@"DELETE FROM contatos where id = '%d' ", contato.id];
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM contatos WHERE id = '%d' ", contato.id];
     [self.dbManager executeQuery: query];
     
     if (self.dbManager.affectedRows == 1) {
