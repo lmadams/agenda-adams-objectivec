@@ -71,7 +71,12 @@ static ContatoDao *instancia = nil;
 }
 
 -(void) removerContato:(Contato*)contato {
-    [self.contatos removeObject:contato];
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM contatos where id = '%d' ", contato.id];
+    [self.dbManager executeQuery: query];
+    
+    if (self.dbManager.affectedRows == 1) {
+        [self.contatos removeObject:contato];
+    }
 }
 
 
