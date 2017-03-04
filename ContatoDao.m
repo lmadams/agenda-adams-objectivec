@@ -1,16 +1,17 @@
-//
-//  ContatoDao.m
-//  AdamsAgenda
-//
-//  Created by dainf on 17/02/17.
-//  Copyright © 2017 br.utfpr. All rights reserved.
-//
-
 #import "ContatoDao.h"
+#import "DBManager.h"
+
+
+@interface ContatoDao()
+
+@property NSMutableArray *contatos;
+@property DBManager *dbManager;
+
+@end
+
 
 @implementation ContatoDao
 
-NSMutableArray *contatos;
 static ContatoDao *instancia = nil;
 
 +(ContatoDao*) contatoDaoInstance {
@@ -24,25 +25,46 @@ static ContatoDao *instancia = nil;
 -(id) init {
     self = [super init];
     
-    contatos = [NSMutableArray new];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename: @"contatosadams.sql"];
+    [self carregaContatos];
     
     return self;
 }
 
+-(void) carregaContatos {
+    NSString *query = @"SELECT * FROM contatos";
+    NSArray *rows = [self.dbManager loadDataFromDB: query];
+
+    self.contatos = [NSMutableArray new];
+    
+    for (NSArray *row in rows) {
+        Contato *contato = [Contato new];
+        
+        contato.id = [ row[0] integerValue ];
+        contato.nome = row[1];
+        contato.endereco = row[2];
+        contato.email = row[3];
+        contato.telefone = row[4];
+        
+        [self.contatos addObject: contato];
+    }
+    
+}
+
 -(void) adicionarContato:(Contato*)contato {
-    [contatos addObject: contato];
+    [self.contatos addObject: contato];
 }
 
 -(NSInteger) tamanho {
-    return contatos.count;
+    return self.contatos.count;
 }
 
 -(Contato*) contatoNoIndex: (NSInteger) index {
-    return contatos[index];
+    return self.contatos[index];
 }
 
 -(void) removerContato:(Contato*)contato {
-    [contatos removeObject:contato];
+    [self.contatos removeObject:contato];
 }
 
 

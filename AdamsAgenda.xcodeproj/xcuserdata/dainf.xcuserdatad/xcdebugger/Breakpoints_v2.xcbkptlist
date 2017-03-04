@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContatoDao.m"
-            timestampString = "509059878.145566"
+            timestampString = "510277573.404252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "@implementation ContatoDao"
             landmarkType = "3">
          </BreakpointContent>

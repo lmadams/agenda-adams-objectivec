@@ -15,6 +15,9 @@
 		F531E84D1E4E6720008954B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F531E84B1E4E6720008954B4 /* LaunchScreen.storyboard */; };
 		F531E8561E4E7352008954B4 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = F531E8551E4E7352008954B4 /* Contato.m */; };
 		F531E8591E4E7BC1008954B4 /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F531E8581E4E7BC1008954B4 /* ListaContatosViewController.m */; };
+		F534EA9C1E6A2E4500F3AC10 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F534EA9B1E6A2E4500F3AC10 /* libsqlite3.tbd */; };
+		F534EA9F1E6A2E6000F3AC10 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F534EA9E1E6A2E6000F3AC10 /* DBManager.m */; };
+		F534EAA11E6A327100F3AC10 /* contatosadams.sql in Resources */ = {isa = PBXBuildFile; fileRef = F534EAA01E6A327100F3AC10 /* contatosadams.sql */; };
 		F53916731E579C1F00CA6C91 /* ContatoDao.m in Sources */ = {isa = PBXBuildFile; fileRef = F53916721E579C1F00CA6C91 /* ContatoDao.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,10 @@
 		F531E8551E4E7352008954B4 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		F531E8571E4E7BC1008954B4 /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
 		F531E8581E4E7BC1008954B4 /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
+		F534EA9B1E6A2E4500F3AC10 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F534EA9D1E6A2E6000F3AC10 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		F534EA9E1E6A2E6000F3AC10 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		F534EAA01E6A327100F3AC10 /* contatosadams.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = contatosadams.sql; sourceTree = "<group>"; };
 		F53916711E579C1F00CA6C91 /* ContatoDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContatoDao.h; path = ../ContatoDao.h; sourceTree = "<group>"; };
 		F53916721E579C1F00CA6C91 /* ContatoDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContatoDao.m; path = ../ContatoDao.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F534EA9C1E6A2E4500F3AC10 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +59,10 @@
 		F531E8311E4E671C008954B4 = {
 			isa = PBXGroup;
 			children = (
+				F534EAA01E6A327100F3AC10 /* contatosadams.sql */,
 				F531E83C1E4E6720008954B4 /* AdamsAgenda */,
 				F531E83B1E4E6720008954B4 /* Products */,
+				F534EA9A1E6A2E4400F3AC10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +80,8 @@
 				F531E8401E4E6720008954B4 /* AppDelegate.h */,
 				F531E8411E4E6720008954B4 /* AppDelegate.m */,
 				F531E8431E4E6720008954B4 /* ViewController.h */,
+				F534EA9D1E6A2E6000F3AC10 /* DBManager.h */,
+				F534EA9E1E6A2E6000F3AC10 /* DBManager.m */,
 				F531E8441E4E6720008954B4 /* ViewController.m */,
 				F531E8461E4E6720008954B4 /* Main.storyboard */,
 				F531E8491E4E6720008954B4 /* Assets.xcassets */,
@@ -92,6 +104,14 @@
 				F531E83E1E4E6720008954B4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F534EA9A1E6A2E4400F3AC10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F534EA9B1E6A2E4500F3AC10 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F534EAA11E6A327100F3AC10 /* contatosadams.sql in Resources */,
 				F531E84D1E4E6720008954B4 /* LaunchScreen.storyboard in Resources */,
 				F531E84A1E4E6720008954B4 /* Assets.xcassets in Resources */,
 				F531E8481E4E6720008954B4 /* Main.storyboard in Resources */,
@@ -165,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F534EA9F1E6A2E6000F3AC10 /* DBManager.m in Sources */,
 				F531E8561E4E7352008954B4 /* Contato.m in Sources */,
 				F531E8451E4E6720008954B4 /* ViewController.m in Sources */,
 				F531E8591E4E7BC1008954B4 /* ListaContatosViewController.m in Sources */,
